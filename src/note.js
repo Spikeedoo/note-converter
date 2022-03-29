@@ -1,6 +1,7 @@
 import React from 'react';
 import note from './quarter.png';
 import './note.css';
+import 'animate.css';
 
 export default class Note extends React.Component {
     
@@ -64,7 +65,7 @@ export default class Note extends React.Component {
 
     render() {
         return(
-            <li className='note' style={(this.state.color!=undefined)?{ borderColor: this.state.color }:''}>
+            <li className='note animate__animated animate__fadeInUp' style={(this.state.color!=undefined)?{ borderColor: this.state.color }:''}>
                 <img src={note}/>
                 <p style={(this.state.color!=undefined)?{ color: this.state.color }:''}>{(this.props.noteType != undefined) ? this.props.noteType : ''}</p>
             </li>
