@@ -1,3 +1,59 @@
+body {
+  background: #17181b;
+}
+
+h1 {
+  text-align: center;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: rgb(223, 217, 217);
+  text-shadow: 1px 1px 1px gray;
+  font-size: 2.5em;
+  margin-top: 20vh;
+  margin-bottom: 5vh;
+}
+
+.eighth {
+  width: 35px;
+  height: auto;
+  margin-top: 2px;
+  margin-right: 10px;
+}
+
+.input-container {
+  text-align: center;
+}
+
+input:focus{
+  outline: none;
+}
+
+#number-input {
+  margin: 0 auto;
+  width: 70%;
+  background: #3a3d44;
+  border: none;
+  border-radius: 5px;
+  padding: 3px 5px 3px 5px;
+  color: lightgray;
+  font-size: 1.5em;
+  caret-color: lightseagreen;
+}
+
+.note-container {
+  margin: 0 auto;
+  margin-top: 50px;
+  padding: 0 10vw 0 10vw;
+}
+
+
+.note-container ul {
+  list-style: none;
+  /* display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 4em; */
+}
+
 .App {
   text-align: center;
 }

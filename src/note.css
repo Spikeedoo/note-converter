@@ -1,0 +1,19 @@
+.note {
+    border: 1px solid transparent;
+    border-radius: 10px;
+    width: 40px;
+    display: inline-block;
+    text-align: center;
+    padding: 5px;
+    margin: 10px;
+}
+
+.note img {
+    height: 40px;
+    width: auto;
+}
+
+p {
+    margin: 0 !important;
+    padding: 0 !important;
+}
