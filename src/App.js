@@ -2,6 +2,7 @@ import './App.css';
 import React from 'react';
 import Note from './note';
 import eighth from './eighth.png';
+import * as Tone from 'tone';
 
 const key = {
   "0": "C",
@@ -20,12 +21,15 @@ const key = {
   "E": "B"
 }
 
+const synth = new Tone.Synth().toDestination();
+
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {number: []};
 
     this.handleChange = this.handleChange.bind(this);
+    this.playMusic = this.playMusic.bind(this);
   }
 
   handleChange(event) {
@@ -35,6 +39,30 @@ class App extends React.Component {
     this.setState({number: numStrArr})
   }
 
+  playMusic() {
+    let noteElements = document.getElementsByClassName('note');
+    this.cleanBackgrounds(noteElements);
+    let notes = []
+    for (let i=0; i<this.state.number.length; i++) {
+      notes.push(key[this.state.number[i]] + "4");
+    }
+    let i = 0;
+    const loop = new Tone.Loop(time => {
+      if (i < notes.length){
+        synth.triggerAttackRelease(notes[i], "8n", time);
+        noteElements[i].style.backgroundColor ='darkslategray';
+        i+=1;
+      }
+    }, "4n").start(0)
+    Tone.Transport.start()
+  }
+
+  cleanBackgrounds(noteElements){
+    for (let i=0; i<noteElements.length; i++) {
+      noteElements[i].style.backgroundColor = 'transparent';
+    }
+  }
+
   render(){
     console.log(this.state);
     return (
@@ -42,6 +70,7 @@ class App extends React.Component {
         <h1><img src={eighth} className='eighth'/>Note Translator</h1>
         <div className='input-container'>
           <input type='text' id='number-input' placeholder='Enter your #...' onChange={this.handleChange} />
+          <button className='play-btn' onClick={ this.playMusic }><i className="fa-solid fa-play"></i></button>
         </div>
         <div className='note-container'>
           <ul>
@@ -56,6 +85,9 @@ class App extends React.Component {
 
             }
           </ul>
+        </div>
+        <div className='signature'>
+          <span>by Matteo Grilla</span>
         </div>
       </div>
     );

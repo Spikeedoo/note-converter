@@ -7,13 +7,13 @@ h1 {
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   color: rgb(223, 217, 217);
   text-shadow: 1px 1px 1px gray;
-  font-size: 2.5em;
+  font-size: 2em;
   margin-top: 20vh;
-  margin-bottom: 5vh;
+  margin-bottom: 7.5vh;
 }
 
 .eighth {
-  width: 35px;
+  width: 30px;
   height: auto;
   margin-top: 2px;
   margin-right: 10px;
@@ -37,6 +37,23 @@ input:focus{
   color: lightgray;
   font-size: 1.5em;
   caret-color: lightseagreen;
+}
+
+.play-btn {
+  padding: 5px 10px 5px 10px;
+  position: relative;
+  left: 10px;
+  bottom: 4px;
+  background: #0b4563;
+  border: none;
+  border-radius: 4px;
+  color: rgb(223, 217, 217);
+  transition: 0.8s color ease-in-out;
+  cursor: pointer;
+}
+
+.play-btn:hover i{
+  color: lightseagreen;
 }
 
 .note-container {
@@ -91,4 +108,12 @@ input:focus{
   to {
     transform: rotate(360deg);
   }
+}
+
+.signature {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  color: darkslategray;
+  font-size: 0.8em;
 }
