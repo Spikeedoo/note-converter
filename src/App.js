@@ -47,14 +47,16 @@ class App extends React.Component {
       notes.push(key[this.state.number[i]] + "4");
     }
     let i = 0;
-    const loop = new Tone.Loop(time => {
-      if (i < notes.length){
-        synth.triggerAttackRelease(notes[i], "8n", time);
-        noteElements[i].style.backgroundColor ='darkslategray';
-        i+=1;
-      }
-    }, "4n").start(0)
-    Tone.Transport.start()
+    Tone.start().then(() => {
+      const loop = new Tone.Loop(time => {
+        if (i < notes.length){
+          synth.triggerAttackRelease(notes[i], "8n", time);
+          noteElements[i].style.backgroundColor ='darkslategray';
+          i+=1;
+        }
+      }, "4n").start(0)
+      Tone.Transport.start()
+    })
   }
 
   cleanBackgrounds(noteElements){
@@ -64,7 +66,6 @@ class App extends React.Component {
   }
 
   render(){
-    console.log(this.state);
     return (
       <div>
         <h1><img src={eighth} className='eighth'/>Note Translator</h1>
@@ -82,7 +83,6 @@ class App extends React.Component {
                   }
                 })
               : '')
-
             }
           </ul>
         </div>
